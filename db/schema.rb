@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_11_17_000741) do
+ActiveRecord::Schema[8.0].define(version: 2024_11_17_214955) do
   create_table "games", force: :cascade do |t|
     t.integer "points"
     t.integer "person_id", null: false
@@ -30,10 +30,17 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_17_000741) do
     t.string "username"
     t.string "password_digest"
     t.boolean "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.integer "person_id", null: false
     t.integer "role_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["role_id"], name: "index_people_on_role_id"
+    t.index ["person_id"], name: "index_profiles_on_person_id"
+    t.index ["role_id"], name: "index_profiles_on_role_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -43,5 +50,6 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_17_000741) do
   end
 
   add_foreign_key "games", "people"
-  add_foreign_key "people", "roles"
+  add_foreign_key "profiles", "people"
+  add_foreign_key "profiles", "roles"
 end

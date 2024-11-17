@@ -1,0 +1,19 @@
+<div class="w-2/3">
+    <table class="table-flex">
+        <thead>
+        <tr class="border-b-2">
+            <th class="text-left px-4">Username</th>
+            <th class="text-left px-4">role</th>
+            <th class="text-left px-4"></th>
+        </tr>
+        </thead>
+
+        <% @profiles.each do |profile| %>
+            <tr class="border-b-2 py-2">
+                <td class="text-left px-4 py-2 "><%= profile.person.username %></td>
+                <td class="text-left px-4"><%= profile.role.name %></td>
+                <td class="text-left px-4"> <%= link_to 'edit', edit_profile_path(profile), class: "underline" %> </td>
+            </tr>
+        <% end %>
+    </table>
+</div>

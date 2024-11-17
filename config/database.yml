@@ -8,10 +8,19 @@ default: &default
   adapter: sqlite3
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
+  # adapter: mysql2
+  # encoding: utf8
+  # pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  # username: root # El usuario predeterminado de MySQL en XAMPP
+  # password:       # Normalmente no tiene contraseña en XAMPP por defecto
+  # host: 127.0.0.1 # XAMPP utiliza localhost o 127.0.0.1
+  # port: 3306      # Puerto predeterminado de MySQL
 
 development:
   <<: *default
   database: storage/development.sqlite3
+  # database: development
+
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

@@ -8,8 +8,9 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-Role.create(name: "admin")
-Person.create(
+@admin_role = Role.create(name: "admin")
+Role.create(name: "user")
+@person = Person.create(
   username: "admin",
   password: "admin",
   name: "admin",
@@ -20,4 +21,5 @@ Person.create(
   phone: 1111,
   email: "admin@admin.com",
   status: true,
-  role_id: 1)
+  )
+Profile.create(person_id: @person.id, role_id: @admin_role.id)

@@ -58,15 +58,15 @@
   </div>
   
 
-  <%if Current.user&.role&.id == 1 %>
+  <%if Current.profile&.role&.id == 1 %>
   <div class="my-2">
     <%= form.label :role_id %>
-    <%= form.select :role_id, options_from_collection_for_select(@roles, :id, :name, @person.role_id), { prompt: 'Select a role' }, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.select :role_id, options_from_collection_for_select(@roles, :id, :name, @person.profile.role_id), { prompt: 'Select a role' }, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
     <%# <%= form.text_field :role_id, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %> 
   </div>
   <%end%>
 
-  <%if Current.user&.role&.id == 1 %>
+  <%if Current.profile&.role&.id == 1 %>
   <div class="my-2">
     <%= form.label :status %>
     <%= form.checkbox :status, class: "block mt-2 h-5 w-5" %>

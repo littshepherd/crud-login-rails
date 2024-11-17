@@ -1,3 +1,3 @@
 class Role < ApplicationRecord
-  has_many :person
+  has_many :profile
 end

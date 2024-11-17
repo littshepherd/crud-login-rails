@@ -30,6 +30,8 @@ class PeopleController < ApplicationController
 
     respond_to do |format|
       if @person.save
+        @profile = Profile.new(person_id: @person.id, role_id: 2)
+        @profile.save
         format.html { redirect_to @person, notice: "Person was successfully created." }
         format.json { render :show, status: :created, location: @person }
       else
@@ -71,6 +73,6 @@ class PeopleController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def person_params
-      params.require(:person).permit(:name, :middle_name, :last_name, :second_last_name, :address, :phone, :email, :username, :password, :status, :role_id)
+      params.require(:person).permit(:name, :middle_name, :last_name, :second_last_name, :address, :phone, :email, :username, :password, :status)
     end
 end

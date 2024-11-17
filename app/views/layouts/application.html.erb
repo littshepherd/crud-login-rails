@@ -27,11 +27,16 @@
         <% if Current.user%>
     <header class="bg-blue-600 text-white py-2 px-5 flex justify-end">
       <div class="flex justify-end gap-4 items-center">
-        <div>
+        <% if Current.profile.role.name == 'admin'%>
+          <div class="underline">
+            <%= link_to 'profiles',  profiles_path %>
+          </div>
+        <%end%>
+        <div class="underline">
           <%= link_to 'game scores',  game_path %>  
         </div>
-        <div>
-          <%= link_to 'game',  "http://127.0.0.1:5000/#{Current.user.username}" %>  
+        <div class="underline">
+          <%= link_to 'play',  "http://127.0.0.1:5000/#{Current.user.username}" %>  
         </div>
         <div>
             <p> <b>user:</b> <%= Current.user.username %> </p>
