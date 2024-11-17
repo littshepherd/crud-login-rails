@@ -1,0 +1,17 @@
+
+
+    <table class="table-auto">
+        <thead>
+        <tr>
+            <th>Username</th>
+            <th>Game Points</th>
+        </tr>
+        </thead>
+
+        <% @games.each do |game| %>
+            <tr>
+                <td><%= game.person.username %></td>
+                <td><%= game.points %></td>
+            </tr>
+        <% end %>
+    </table>

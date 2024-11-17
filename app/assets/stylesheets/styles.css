@@ -1,0 +1,80 @@
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    background-color: #f4f4f9;
+}
+
+.selection-container, .game-area {
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.character-options label {
+    display: inline-block;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.character-options img {
+    width: 100px;
+    border: 2px solid transparent;
+    transition: transform 0.2s;
+}
+
+.character-options input[type="radio"]:checked + img {
+    border-color: #00796b;
+    transform: scale(1.1);
+}
+
+.game-area {
+    position: relative;
+    width: 800px;
+    height: 400px;
+    background-image: url('../images/beach.png'); /* Cambiar dinámicamente según el escenario */
+    background-size: cover;
+    border: 2px solid #00796b;
+}
+
+.character {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 80px;
+}
+
+.question-icon {
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    width: 50px;
+    cursor: pointer;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.question-box {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 2px solid #00796b;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.score {
+    font-size: 20px;
+    font-weight: bold;
+    color: #00796b;
+    margin-bottom: 10px;
+}

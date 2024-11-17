@@ -1,0 +1,44 @@
+<div class="mx-auto md:w-3/3 w-full flex">
+  <div class="mx-auto">
+    <% if notice.present? %>
+      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <% end %>
+
+
+     <table class="table-auto">
+      <thead>
+       <tr class="border-b-2 ">
+        <th class="text-left px-4">username</th>
+        <th class="text-left px-4">First name</th>
+        <th class="text-left px-4">middle name</th>
+        <th class="text-left px-4">last name</th>
+        <th class="text-left px-4">second Last name</th>
+        <th class="text-left px-4">email</th>
+        <th class="text-left px-4">role</th>
+        <th class="text-left px-4">phone</th>
+        <th class="text-left px-4">address</th>
+        <th class="text-left px-4">status</th>
+        <th class="text-left px-4">action</th>
+       </tr> 
+      </thead>
+      <tbody class="">
+    
+          <tr class="border-b-2 py-1">
+    <%= render @person %>
+            <td>
+    <%= link_to "Edit", edit_person_path(@person), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Back", people_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <div class="inline-block ml-2">
+      <%= button_to "Destroy", @person, method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+    </div>
+            </td>
+          </tr>
+  
+      </tbody>
+    </table>
+
+
+
+
+  </div>
+</div>

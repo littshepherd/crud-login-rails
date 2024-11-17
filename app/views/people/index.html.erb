@@ -1,0 +1,49 @@
+
+<div class="w-full">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+
+  <% content_for :title, "People" %>
+
+<%# <%= Current.user.role.id%> 
+<% if Current.user&.role&.id == 1%>
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl">People</h1>
+    <%= link_to "New person", new_person_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+  </div>
+  <%end%>
+
+
+
+  <%# <div id="people" class="min-w-full"> %>
+    <table class="table-auto">
+      <thead>
+       <tr class="border-b-2 ">
+        <th class="text-left px-4">username</th>
+        <th class="text-left px-4">First name</th>
+        <th class="text-left px-4">middle name</th>
+        <th class="text-left px-4">last name</th>
+        <th class="text-left px-4">second Last name</th>
+        <th class="text-left px-4">email</th>
+        <th class="text-left px-4">role</th>
+        <th class="text-left px-4">phone</th>
+        <th class="text-left px-4">address</th>
+        <th class="text-left px-4">status</th>
+        <th class="text-left px-4">action</th>
+       </tr> 
+      </thead>
+      <tbody class="">
+        <% @people.each do |person| %>
+          <tr class="border-b-2 py-1">
+            <%= render person %>
+            <td>
+              <%= link_to "Show", person, class: "ml-2 rounded-lg py-2 px-5 bg-blue-100 inline-block font-medium" %>
+            </td>
+          </tr>
+        <% end %>
+  
+      </tbody>
+    </table>
+  <%# </div> %>
+</div>
