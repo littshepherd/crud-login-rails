@@ -1,17 +1,19 @@
 
 
-    <table class="table-auto">
+<div class="w-2/3">
+    <table class="table-flex">
         <thead>
-        <tr>
-            <th>Username</th>
-            <th>Game Points</th>
+        <tr class="border-b-2">
+            <th class="text-left px-4">Username</th>
+            <th class="text-left px-4">Game Points</th>
         </tr>
         </thead>
 
         <% @games.each do |game| %>
-            <tr>
-                <td><%= game.person.username %></td>
-                <td><%= game.points %></td>
+            <tr class="border-b-2">
+                <td class="text-left px-4 py-2"><%= game.person.username %></td>
+                <td class="text-left px-4"><%= game.points %></td>
             </tr>
         <% end %>
     </table>
+</div>
